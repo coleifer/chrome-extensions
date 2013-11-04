@@ -1,0 +1,58 @@
+body {
+  background : #ffffff;
+  background : radial-gradient(ellipse at center, #ffffff 0%, #eee 100%);
+  background : -moz-radial-gradient(#eee, #fff);
+}
+.keepcentered {
+  width : 640px;
+  height : 300px;
+  margin-left : auto;
+  margin-right : auto;
+  margin-top: 200px;
+  font-weight : 100;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style : normal;
+  color : #d64937; // Change this to change the color of the colored font on the page.
+  margin : 5px;
+}
+input, textarea, select {
+  border: 1px solid #d64937;
+  padding: 10px;
+}
+td, tr {
+  width: 20%;
+  text-align: center;
+}
+th {
+  width: 20%;
+  font-weight: normal;
+  text-align: center;
+}
+table input {
+  width: 100%;
+}
+a {
+  font-weight: 100;
+  color : #999;
+}
+a:hover{
+  color: #eee;
+}
+a:link {
+  text-decoration : none;
+  text-shadow: 0px 0px 0px #000;
+}
+input#search {
+  width: 100%;
+  font-size: 18px;
+}
+div#time { font-size: 72px; }
+div.toolbar { 
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+textarea#noteText {height: 75px; width: 200px;}
