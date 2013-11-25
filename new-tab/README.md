@@ -9,8 +9,9 @@ This is a simple chrome extension I hacked together which was inspired by an
 * Loads bookmarks from a Chrome bookmarks folder of your choosing.
 * Has customizable "quick search" capabilities.
 * Persistent "notepad" using Chrome's storage API.
+* Quick jump to URL using mnemonics (i.e. "gi co chro" -> https://github.com/coleifer/chrome-extensions)
 * Support for displaying favicons.
 
 ### Screenshot
 
-![](http://i.imgur.com/K8LMt84.png)
+![](http://i.imgur.com/2oexNI1.png)
