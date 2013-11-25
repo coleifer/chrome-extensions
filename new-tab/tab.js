@@ -37,14 +37,57 @@
   function bindNoteHandlers() {
     var elem = document.getElementById('noteText'),
         saveHandler = _makeDelayed();
+    function save() {
+      chrome.storage.sync.set({'noteText': elem.value});
+    }
     // Throttle save so that it only occurs after 1 second without a keypress.
     elem.addEventListener('keypress', function() {
-      saveHandler(function() {
-        chrome.storage.sync.set({'noteText': elem.value});
-      }, 1000);
+      saveHandler(save, 1000);
     });
+    elem.addEventListener('blur', save);
     chrome.storage.sync.get('noteText', function(data) {
       elem.value = data.noteText ? data.noteText : '';
+    });
+  }
+
+  function searchHistory() {
+    // Only look at the past 7 days.
+    var cutoff = new Date().getTime() - (1000 * 60 * 60 * 24 * 7),
+        elem = document.getElementById('historyText'),
+        parts = elem.value.split(' '),
+        regex = new RegExp(parts.join('.*[\/\.].*')),
+        urls = [];
+
+    // Search for all history.
+    chrome.history.search({
+      'text': '',
+      'maxResults': 500, 
+      'startTime': cutoff
+    }, function(items) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].url.match(regex)) {
+          urls.push([items[i].lastVisit, items[i].url]);
+        }
+      }
+      if (urls.length) {
+        elem.value = urls[0][1];
+      }
+    });
+  }
+
+  function bindHistory() {
+    var elem = document.getElementById('historyText'),
+        searchHandler = _makeDelayed();
+
+    elem.addEventListener('keypress', function(e) {
+      if (e.keyCode == 13 && elem.value) {
+        window.location.href = elem.value;
+      } else if (e.keyCode == 35) {
+        e.preventDefault();
+        elem.value = '';
+      } else {
+        searchHandler(searchHistory, 1200);
+      }
     });
   }
 
@@ -151,7 +194,9 @@
   addSearch('djangome', function(s) {
     window.location.href = 'http://django.me/' + s;
   });
+
   updateClock();
   bindNoteHandlers();
+  bindHistory();
   loadBookmarks(bookmarkFolder);
 })('Favorites', false);

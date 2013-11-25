@@ -4,6 +4,6 @@
   "version": "0.1",
   "incognito": "split",
   "chrome_url_overrides": {"newtab": "start-page.html"},
-  "permissions": ["bookmarks", "storage"],
+  "permissions": ["bookmarks", "history", "storage"],
   "manifest_version": 2
 }

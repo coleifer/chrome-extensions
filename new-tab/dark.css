@@ -52,10 +52,19 @@ input#search {
   font-size: 18px;
 }
 div#time { font-size: 72px; }
-div.toolbar { 
+div.history {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  width: 45%;
+}
+input#historyText {width: 100%;}
+div.notes { 
   position: absolute;
   top: 0;
   right: 0;
   padding: 10px;
+  width: 45%;
 }
-textarea#noteText {height: 125px; width: 300px;}
+textarea#noteText {height: 125px; width: 100%;}
