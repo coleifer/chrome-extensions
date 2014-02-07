@@ -162,10 +162,10 @@
     }
   }
 
-  function loadBookmarks(search) {
+  function loadBookmarks(folderName) {
     function search(nodes) {
       for (var i = 0; i < nodes.length; i++) {
-        if (nodes[i].title == 'Favorites') {
+        if (nodes[i].title == folderName) {
           _processFavorites(nodes[i].children);
           return;
         } else if (nodes[i].children && nodes[i].children.length > 0) {
