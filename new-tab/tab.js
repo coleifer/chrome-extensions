@@ -191,8 +191,8 @@
   addSearch('testp', function(s) {
     window.location.href = 'https://testp-' + s + '.counsyl.com/helpdesk/';
   });
-  addSearch('djangome', function(s) {
-    window.location.href = 'http://django.me/' + s;
+  addSearch('playground', function(s) {
+    window.location.href = 'https://playground.charlesleifer.com/bookmarks/?q=' + s;
   });
 
   updateClock();

@@ -1,5 +1,5 @@
 body {
-  background : #181512;
+  background : #000003;
 }
 .keepcentered {
   width : 640px;
@@ -13,13 +13,13 @@ body {
   font-family: 'Electrolize', sans-serif;
   font-style : normal;
   /*color: #d75f5f;*/
-  color : #bea492;
+  color: #EA839B;
   margin : 5px;
 }
 input, textarea, select {
-  background-color: #181512;
-  border: 1px solid #bea492;
-  color : #bea492;
+  background-color: #000003;
+  border: 1px solid #EA839B;
+  color : #EA839B;
   font-family: 'Electrolize', sans-serif;
   padding: 10px;
 }
@@ -38,10 +38,10 @@ table input {
 a {
   /*font-family: 'Roboto', sans-serif;*/
   font-weight: 100;
-  color : #9f7155;
+  color : #ED0077;
 }
 a:hover{
-  color: #eee;
+  color: #999999;
 }
 a:link {
   text-decoration : none;
