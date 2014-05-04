@@ -61,7 +61,7 @@
     // Search for all history.
     chrome.history.search({
       'text': '',
-      'maxResults': 500, 
+      'maxResults': 500,
       'startTime': cutoff
     }, function(items) {
       for (var i = 0; i < items.length; i++) {
@@ -192,7 +192,7 @@
     window.location.href = 'https://testp-' + s + '.counsyl.com/helpdesk/';
   });
   addSearch('playground', function(s) {
-    window.location.href = 'https://playground.charlesleifer.com/bookmarks/?q=' + s;
+    window.location.href = 'https://playground.charlesleifer.com/?q=' + s;
   });
 
   updateClock();
