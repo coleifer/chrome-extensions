@@ -91,11 +91,23 @@
     });
   }
 
+  // Extract the max length of all child elements
+  // @param lol the list of lists
+  function maxLength(lol){
+    if (!lol){
+      return 0;
+    }
+    var max = 0;
+    for (var i = 0; i < lol.length; i++){
+      max = Math.max(lol[i].length, max);
+    }
+    return max;
+  }
+
   function zip() {
     var list_of_lists = arguments[0];
-    var argLength = list_of_lists[0].length;
     var zipped = [];
-    for (var i = 0; i < argLength; i++) {
+    for (var i = 0; i < maxLength(list_of_lists); i++) {
       var row = [];
       for (var j = 0; j < list_of_lists.length; j++) {
         row.push(list_of_lists[j][i]);
@@ -117,18 +129,21 @@
     for (var i = 0, l = bookmarks.length; i < l; i++) {
       var td = document.createElement('td');
       var link = document.createElement('a');
-      if (displayFavicons) {
-        faviconUrl = getFavicon(bookmarks[i].url);
-        if (faviconUrl) {
-          var img = document.createElement('img');
-          img.src = getFavicon(bookmarks[i].url);
-          link.appendChild(img);
-          link.appendChild(document.createTextNode(' '));
+
+      if (bookmarks[i]){
+        if (displayFavicons) {
+          faviconUrl = getFavicon(bookmarks[i].url);
+          if (faviconUrl) {
+            var img = document.createElement('img');
+            img.src = getFavicon(bookmarks[i].url);
+            link.appendChild(img);
+            link.appendChild(document.createTextNode(' '));
+          }
         }
+        link.appendChild(document.createTextNode(bookmarks[i].title));
+        link.href = bookmarks[i].url;
+        td.appendChild(link);
       }
-      link.appendChild(document.createTextNode(bookmarks[i].title));
-      link.href = bookmarks[i].url;
-      td.appendChild(link);
       row.appendChild(td);
     }
     return row;
