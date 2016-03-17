@@ -91,11 +91,23 @@
     });
   }
 
+  // Extract the max length of all child elements
+  // @param lol the list of lists
+  function maxLength(lol){
+    if (!lol){
+      return 0;
+    }
+    var max = 0;
+    for (var i = 0; i < lol.length; i++){
+      max = Math.max(lol[i].length, max);
+    }
+    return max;
+  }
+
   function zip() {
     var list_of_lists = arguments[0];
-    var argLength = list_of_lists[0].length;
     var zipped = [];
-    for (var i = 0; i < argLength; i++) {
+    for (var i = 0; i < maxLength(list_of_lists); i++) {
       var row = [];
       for (var j = 0; j < list_of_lists.length; j++) {
         row.push(list_of_lists[j][i]);
