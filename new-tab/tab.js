@@ -117,18 +117,21 @@
     for (var i = 0, l = bookmarks.length; i < l; i++) {
       var td = document.createElement('td');
       var link = document.createElement('a');
-      if (displayFavicons) {
-        faviconUrl = getFavicon(bookmarks[i].url);
-        if (faviconUrl) {
-          var img = document.createElement('img');
-          img.src = getFavicon(bookmarks[i].url);
-          link.appendChild(img);
-          link.appendChild(document.createTextNode(' '));
+
+      if (bookmarks[i]){
+        if (displayFavicons) {
+          faviconUrl = getFavicon(bookmarks[i].url);
+          if (faviconUrl) {
+            var img = document.createElement('img');
+            img.src = getFavicon(bookmarks[i].url);
+            link.appendChild(img);
+            link.appendChild(document.createTextNode(' '));
+          }
         }
+        link.appendChild(document.createTextNode(bookmarks[i].title));
+        link.href = bookmarks[i].url;
+        td.appendChild(link);
       }
-      link.appendChild(document.createTextNode(bookmarks[i].title));
-      link.href = bookmarks[i].url;
-      td.appendChild(link);
       row.appendChild(td);
     }
     return row;
