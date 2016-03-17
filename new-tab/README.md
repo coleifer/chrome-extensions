@@ -15,3 +15,11 @@ This is a simple chrome extension I hacked together which was inspired by an
 ### Screenshot
 
 ![](http://i.imgur.com/2oexNI1.png)
+
+
+### Installation
+
+Navigate to [chrome://extensions/](chrome://extensions/) and click the "Load 
+unpacked extension..." button. Navigate to and select this directory. You 
+should then see an "Improved new tab page" extension and see the app when
+you open a new tab.
